@@ -14,8 +14,8 @@ type SinglyList struct {
 	length int
 }
 
-func New() (*SinglyList) {
-	return &SinglyList{
+func New() (SinglyList) {
+	return SinglyList{
 		head: nil,
 		tail: nil,
 		length: 0,
@@ -27,6 +27,7 @@ func (s *SinglyList) AddNodeAtHead(key int) {
 		next: nil,
 		val: key,
 	}
+	s.length++
 	if s.head == nil && s.tail == nil {
 		s.head = newNode 
 		s.tail = s.head
@@ -67,6 +68,7 @@ func (s *SinglyList) AddNode(key int, pos int) {
 		next: nil,
 		val: key,
 	}
+	s.length++
 	var prev, curr *Node
 	curr = s.head
 	for pos != 1 && curr != nil {
@@ -95,10 +97,12 @@ func (s *SinglyList) Reverse() {
 	s.head = prev
 }
 
-func (s *SinglyList) Display() {
+func (s SinglyList) Display() {
+	fmt.Println("List Content...")
 	curr := s.head 
 	for curr != nil {
 		fmt.Printf("%d -> ", curr.val)
 		curr = curr.next
 	}
+	fmt.Println()
 }
