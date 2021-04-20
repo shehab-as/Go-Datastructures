@@ -66,7 +66,24 @@ func Run_Graph() {
 	fmt.Println("~~~ Directed Graph ...")
 	myGraph := Graphs.New(5)
 	myGraph.AddEdge(1, 2)
-	myGraph.AddEdge(1, 3)
-	myGraph.AddEdge(2, 4)
+	myGraph.AddEdge(1, 4)
+	myGraph.AddEdge(1, 5)
+	myGraph.AddEdge(2, 3)
+	myGraph.AddEdge(3, 4)
+	myGraph.AddEdge(5, 6)
+	myGraph.AddEdge(6, 7)
+	myGraph.AddEdge(7, 8)
+	myGraph.AddEdge(8, 9)
+	myGraph.AddEdge(3, 10)
+
+	fmt.Println("BFS...")
 	myGraph.BFS(1)
+	fmt.Println("DFS...")
+	myGraph.DFS(1)
 }
+/*        2 - - > 3 -> 10
+         /        |
+		1  -> 4 <-
+         \ 
+		  5 -> 6 -> 7 -> 8 -> 9
+*/
