@@ -6,7 +6,7 @@ import (
 
 type Node struct {
 	next *Node 
-	val int
+	val interface{}
 }
 type SinglyList struct {
 	head *Node
@@ -22,7 +22,7 @@ func New() (SinglyList) {
 	}
 }
 
-func (s *SinglyList) AddNodeAtHead(key int) {
+func (s *SinglyList) AddNodeAtHead(key interface{}) {
 	newNode := &Node{
 		next: nil,
 		val: key,
@@ -38,7 +38,7 @@ func (s *SinglyList) AddNodeAtHead(key int) {
 	s.head.next = curr 
 }
 
-func (s *SinglyList) AddNodeAtTail(key int) {
+func (s *SinglyList) AddNodeAtTail(key interface{}) {
 	newNode := &Node{ 
 		next: nil,
 		val: key,
@@ -53,7 +53,7 @@ func (s *SinglyList) AddNodeAtTail(key int) {
 	s.tail = s.tail.next
 }
 
-func (s *SinglyList) AddNode(key int, pos int) {
+func (s *SinglyList) AddNode(key interface{}, pos int) {
 	if pos <= 0 { 
 		return
 	} else if pos == 1 {
@@ -80,6 +80,25 @@ func (s *SinglyList) AddNode(key int, pos int) {
 	newNode.next = curr
 }
 
+func (s *SinglyList) DeleteNode(pos int) {
+	if pos <= 0 || pos > s.length {
+		return
+	}
+	if pos == 1 {
+		s.head = s.head.next
+		return
+	}
+	var prev, curr *Node
+	curr = s.head 
+	for curr != nil && pos != 1 {
+		prev = curr 
+		curr = curr.next
+		pos--
+	}
+	prev.next = curr.next
+	curr.next = nil
+}
+
 func (s *SinglyList) Reverse() {
 	if s.head == nil && s.tail == nil {
 		return
@@ -101,7 +120,7 @@ func (s SinglyList) Display() {
 	fmt.Println("List Content...")
 	curr := s.head 
 	for curr != nil {
-		fmt.Printf("%d -> ", curr.val)
+		fmt.Printf("%v -> ", curr.val)
 		curr = curr.next
 	}
 	fmt.Println()

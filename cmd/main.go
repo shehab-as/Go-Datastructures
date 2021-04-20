@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	// Run_SinglyList()
-	// Run_Stack()
+	Run_SinglyList()
+	Run_Stack()
 	Run_BST()
 }
 
@@ -25,6 +25,8 @@ func Run_SinglyList() {
 	mylist.AddNode(-50, 3)
 	mylist.Display()
 	mylist.Reverse()
+	mylist.Display()
+	mylist.DeleteNode(5)
 	mylist.Display()
 }
 
@@ -42,18 +44,18 @@ func Run_BST() {
 func Run_Stack() {
 	fmt.Println("~~~ Stack ...")
 	myStack := Stacks.New(3)
-	fmt.Printf("Top of Stack -> %d\n", myStack.Top())
-	myStack.Push(5)
-	myStack.Push(10)
-	myStack.Push(15)
-	myStack.Push(20)
-	fmt.Printf("Top of Stack -> %d\n", myStack.Top())
+	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
+	myStack.Push("A")
+	myStack.Push("B")
+	myStack.Push("C")
+	myStack.Push("D")
+	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
 	myStack.Pop()
-	fmt.Printf("Top of Stack -> %d\n", myStack.Top())
+	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
 	myStack.Pop()
-	fmt.Printf("Top of Stack -> %d\n", myStack.Top())
+	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
 	myStack.Pop()
-	fmt.Printf("Top of Stack -> %d\n", myStack.Top())
+	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
 	myStack.Pop()
-	fmt.Printf("Top of Stack -> %d\n", myStack.Top())
+	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
 }

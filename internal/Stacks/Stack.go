@@ -3,14 +3,14 @@ package Stacks
 import "fmt"
 
 type Stack struct {
-	A 		[]int
-	top 	int 
+	A 		[]interface{}
+	top 	int
 	size 	int
 }
 
 func New(size int) *Stack {
 	return &Stack{
-		A: []int{},
+		A: nil,
 		top: -1,
 		size: size,
 	}
@@ -24,16 +24,16 @@ func (s Stack) IsEmpty() (bool) {
 	return s.top == -1
 }
 
-func (s *Stack) Push(key int) {
+func (s *Stack) Push(key interface{}) {
 	if s.IsFull() {
-		fmt.Printf("Stack is full. Cannot push element %d.\n", key)
+		fmt.Printf("Stack is full. Cannot push element %v.\n", key)
 		return
 	}
 	s.A = append(s.A, key)
 	s.top++
 }
 
-func (s *Stack) Top() (int) {
+func (s *Stack) Top() (interface{}) {
 	if s.IsEmpty() {
 		fmt.Println("Stack is empty.")
 		return -1
