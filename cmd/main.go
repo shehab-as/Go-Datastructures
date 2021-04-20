@@ -3,14 +3,16 @@ package main
 import (
 	"fmt"
 	"go-datastructures/internal/BinarySearchTrees"
+	"go-datastructures/internal/Graphs"
 	"go-datastructures/internal/SinglyLinkedList"
 	"go-datastructures/internal/Stacks"
 )
 
 func main() {
-	Run_SinglyList()
-	Run_Stack()
-	Run_BST()
+	// Run_SinglyList()
+	// Run_Stack()
+	// Run_BST()
+	Run_Graph()
 }
 
 func Run_SinglyList() {
@@ -58,4 +60,13 @@ func Run_Stack() {
 	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
 	myStack.Pop()
 	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
+}
+
+func Run_Graph() {
+	fmt.Println("~~~ Directed Graph ...")
+	myGraph := Graphs.New(5)
+	myGraph.AddEdge(1, 2)
+	myGraph.AddEdge(1, 3)
+	myGraph.AddEdge(2, 4)
+	myGraph.BFS(1)
 }
