@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"go-datastructures/internal/BinarySearchTrees"
 	"go-datastructures/internal/Graphs"
+	"go-datastructures/internal/Heaps"
 	"go-datastructures/internal/Queues"
 	"go-datastructures/internal/SinglyLinkedList"
 	"go-datastructures/internal/Stacks"
@@ -17,6 +18,7 @@ func main() {
 	// Run_Graph()
 	// Run_Queue()
 	// Run_Trie()
+	Run_MaxHeap()
 }
 
 func Run_SinglyList() {
@@ -67,6 +69,7 @@ func Run_Stack() {
 }
 
 func Run_Queue() {
+	fmt.Println("~~~ Queue ...")
 	myQueue := Queues.New(100)
 	myQueue.Enqueue("Customer 1")
 	myQueue.Enqueue("Customer 2")
@@ -107,6 +110,7 @@ func Run_Graph() {
 */
 
 func Run_Trie() {
+	fmt.Println("~~~ Trie ...")
 	myTrie := Tries.New()
 	myTrie.AddKey("She")
 	myTrie.AddKey("Shehab")
@@ -115,5 +119,26 @@ func Run_Trie() {
 	fmt.Printf("\"%s\" found ? %v\n", "he", myTrie.SearchKey("he"))
 	myTrie.DeleteKey("She")
 	fmt.Printf("\"%s\" found ? %v\n", "She", myTrie.SearchKey("She"))
+}
 
+func Run_MaxHeap() {
+	fmt.Println("~~~ Max Heap ...")
+	myMaxHeap := Heaps.New()
+	A := []int{20, 2, 15, 3, 45}
+	for i := 0; i < len(A); i++ {
+		fmt.Printf("Pushing element %d to Heap.\n", A[i])
+		myMaxHeap.Push(A[i])
+	}
+	fmt.Printf("Current size of Heap is %d.\n", myMaxHeap.GetSize())
+	fmt.Printf("Current Top element in Heap: %d.\n", myMaxHeap.Top())
+	myMaxHeap.Pop()
+	fmt.Printf("Current Top element in Heap: %d.\n", myMaxHeap.Top())
+	myMaxHeap.Pop()
+	fmt.Printf("Current Top element in Heap: %d.\n", myMaxHeap.Top())
+	myMaxHeap.Pop()
+	fmt.Printf("Current Top element in Heap: %d.\n", myMaxHeap.Top())
+	myMaxHeap.Pop()
+	fmt.Printf("Current Top element in Heap: %d.\n", myMaxHeap.Top())
+	myMaxHeap.Pop()
+	fmt.Printf("Current Top element in Heap: %d.\n", myMaxHeap.Top())
 }
