@@ -12,13 +12,14 @@ import (
 )
 
 func main() {
+	// Uncomment to see a datastructure simulation
 	// Run_SinglyList()
 	// Run_Stack()
 	// Run_BST()
 	// Run_Graph()
 	// Run_Queue()
 	// Run_Trie()
-	Run_MaxHeap()
+	// Run_MaxHeap()
 }
 
 func Run_SinglyList() {
