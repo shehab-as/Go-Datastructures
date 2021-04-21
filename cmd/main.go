@@ -16,7 +16,7 @@ func main() {
 	// Run_BST()
 	// Run_Graph()
 	// Run_Queue()
-	Run_Trie()
+	// Run_Trie()
 }
 
 func Run_SinglyList() {
@@ -113,4 +113,7 @@ func Run_Trie() {
 	fmt.Printf("\"%s\" found ? %v\n", "She", myTrie.SearchKey("She"))
 	fmt.Printf("\"%s\" found ? %v\n", "Shehab", myTrie.SearchKey("Shehab"))
 	fmt.Printf("\"%s\" found ? %v\n", "he", myTrie.SearchKey("he"))
+	myTrie.DeleteKey("She")
+	fmt.Printf("\"%s\" found ? %v\n", "She", myTrie.SearchKey("She"))
+
 }

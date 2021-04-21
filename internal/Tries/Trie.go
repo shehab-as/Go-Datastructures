@@ -25,7 +25,46 @@ func New() (Trie) {
 	}
 }
 
-func (t *Trie) SearchKey(key string) (bool) {
+func (t Trie) hasChildren(node *Node) bool {
+	for i := 0; i < 256; i++ {
+		if node.children[i] != nil {
+			return true
+		}
+	}
+	return false
+}
+
+func (t* Trie) _delete(node *Node, key string) {
+	if node == nil {
+		return
+	}
+	if len(key) == 0 {
+		if t.hasChildren(node) {
+			node.isLeaf = false
+		} else {
+			node = nil
+		}
+	}
+	for _, c := range key {
+		k := c - '0'
+		if node.children[k] != nil {
+			t._delete(node.children[k], key[1:])
+			if !t.hasChildren(node) {
+				node = nil
+			}
+		}
+	}
+}
+
+func (t *Trie) DeleteKey(key string) {
+	fmt.Printf("Deleting Key - %s\n", key)
+	if t.root == nil {
+		return
+	}
+	t._delete(t.root, key)
+}
+
+func (t Trie) SearchKey(key string) bool {
 	fmt.Printf("Searching Key - %s\n", key)
 	if t.root == nil {
 		return false
