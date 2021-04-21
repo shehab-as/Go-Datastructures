@@ -4,15 +4,19 @@ import (
 	"fmt"
 	"go-datastructures/internal/BinarySearchTrees"
 	"go-datastructures/internal/Graphs"
+	"go-datastructures/internal/Queues"
 	"go-datastructures/internal/SinglyLinkedList"
 	"go-datastructures/internal/Stacks"
+	"go-datastructures/internal/Tries"
 )
 
 func main() {
 	// Run_SinglyList()
 	// Run_Stack()
 	// Run_BST()
-	Run_Graph()
+	// Run_Graph()
+	// Run_Queue()
+	Run_Trie()
 }
 
 func Run_SinglyList() {
@@ -62,6 +66,20 @@ func Run_Stack() {
 	fmt.Printf("Top of Stack -> %v\n", myStack.Top())
 }
 
+func Run_Queue() {
+	myQueue := Queues.New(100)
+	myQueue.Enqueue("Customer 1")
+	myQueue.Enqueue("Customer 2")
+	myQueue.Enqueue("Customer 3")
+	myQueue.Enqueue("Customer 4")
+	fmt.Printf("Front of the Queue - %v.\n", myQueue.Front())
+	myQueue.Dequeue()
+	fmt.Printf("Front of the Queue - %v.\n", myQueue.Front())
+	myQueue.Dequeue()
+	myQueue.Enqueue("Customer 5")
+	fmt.Printf("Front of the Queue - %v.\n", myQueue.Front())
+}
+
 func Run_Graph() {
 	fmt.Println("~~~ Directed Graph ...")
 	myGraph := Graphs.New(5)
@@ -87,3 +105,12 @@ func Run_Graph() {
          \ 
 		  5 -> 6 -> 7 -> 8 -> 9
 */
+
+func Run_Trie() {
+	myTrie := Tries.New()
+	myTrie.AddKey("She")
+	myTrie.AddKey("Shehab")
+	fmt.Printf("\"%s\" found ? %v\n", "She", myTrie.SearchKey("She"))
+	fmt.Printf("\"%s\" found ? %v\n", "Shehab", myTrie.SearchKey("Shehab"))
+	fmt.Printf("\"%s\" found ? %v\n", "he", myTrie.SearchKey("he"))
+}
