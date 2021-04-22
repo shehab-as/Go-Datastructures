@@ -15,7 +15,7 @@ func main() {
 	// Uncomment to see a datastructure simulation
 	// Run_SinglyList()
 	// Run_Stack()
-	// Run_BST()
+	Run_BST()
 	// Run_Graph()
 	// Run_Queue()
 	// Run_Trie()
@@ -42,12 +42,32 @@ func Run_SinglyList() {
 func Run_BST() {
 	fmt.Println("~~~ Binary Search Trees ...")
 	myBST := BinarySearchTrees.New()
+	/*
+			10
+		   /   \
+		  5		50
+			   /
+			  30
+			/   \
+		   20   40 
+	*/
 	myBST.Add(10)
 	myBST.Add(50)
 	myBST.Add(30)
 	myBST.Add(40)
 	myBST.Add(20)
+	myBST.Add(5)
+	fmt.Printf("Searching for key %d, Result: %v.\n", 10, myBST.Search(10))
+	fmt.Printf("Searching for key %d, Result: %v.\n", 20, myBST.Search(20))
+	fmt.Printf("Searching for key %d, Result: %v.\n", 2, myBST.Search(2))
+	fmt.Printf("Searching for key %d, Result: %v.\n", 5, myBST.Search(5))
+	myBST.Delete(20)
+	myBST.Delete(25)
+	fmt.Printf("Searching for key %d, Result: %v.\n", 20, myBST.Search(20))
+	fmt.Printf("Searching for key %d, Result: %v.\n", 25, myBST.Search(25))
 	myBST.InOrder()
+	myBST.PreOrder()
+	myBST.PostOrder()
 }
 
 func Run_Stack() {
