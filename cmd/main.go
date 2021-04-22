@@ -15,7 +15,7 @@ func main() {
 	// Uncomment to see a datastructure simulation
 	// Run_SinglyList()
 	// Run_Stack()
-	Run_BST()
+	// Run_BST()
 	// Run_Graph()
 	// Run_Queue()
 	// Run_Trie()
