@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"go-datastructures/internal/BinarySearchTrees"
 	"go-datastructures/internal/Graphs"
+	"go-datastructures/internal/HashTables"
 	"go-datastructures/internal/Heaps"
 	"go-datastructures/internal/Queues"
 	"go-datastructures/internal/SinglyLinkedList"
@@ -20,6 +21,7 @@ func main() {
 	// Run_Queue()
 	// Run_Trie()
 	// Run_MaxHeap()
+	// Run_Map()
 }
 
 func Run_SinglyList() {
@@ -162,4 +164,19 @@ func Run_MaxHeap() {
 	fmt.Printf("Current Top element in Heap: %d.\n", myMaxHeap.Top())
 	myMaxHeap.Pop()
 	fmt.Printf("Current Top element in Heap: %d.\n", myMaxHeap.Top())
+}
+
+func Run_Map() {
+	myMap := HashTables.New(10)
+	myMap.Insert(10)
+	myMap.Insert(7)
+	myMap.Insert(5)
+	myMap.Insert(2)
+	myMap.Insert(30)
+	myMap.Insert(3)
+	myMap.Display()
+	myMap.Remove(3)
+	myMap.Remove(3)
+	myMap.Remove(5)
+	myMap.Display()
 }
